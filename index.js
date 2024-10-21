@@ -8,18 +8,18 @@ const { format } = require('fast-csv');
 
 
 const publicClient = createPublicClient({
-    chain: sepolia,
+    chain: mainnet,
     transport: http()
 })
 
-const contractAddress = '0x35BE43779Ec30401F771710dDcF580F4E4fcc513';
+const contractAddress = '0xe54a7e5615Ac3236E415Fd9Fead420adeACb92eA';
 
 const getLogs = async () => {
     const logs = await publicClient.getContractEvents({ 
         address: contractAddress,
         abi: abi,
         eventName: 'Claimed',
-        fromBlock: 6863372n,
+        fromBlock: 20952799n,
     })
     
     if(logs.length > 0) {
